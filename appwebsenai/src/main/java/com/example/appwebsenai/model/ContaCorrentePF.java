@@ -1,7 +1,5 @@
 package com.example.appwebsenai.model;
 
-import com.example.appwebsenai.controller.AccountType;
-
 import javax.persistence.*;
 
 @Entity
@@ -70,6 +68,4 @@ public class ContaCorrentePF{
         this.saldo = saldo;
     }
 
-    public void setAccountType(AccountType accountType) {
-    }
 }

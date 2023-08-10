@@ -1,4 +1,4 @@
-package com.example.appwebsenai.controller;
+package com.example.appwebsenai.model;
 
 public enum AccountType {
     CONTA_CORRENTE, CONTA_POUPANCA

@@ -1,5 +1,7 @@
 package com.example.appwebsenai.model;
 
+import com.example.appwebsenai.controller.AccountType;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,13 +11,32 @@ public class ContaCorrentePF{
     @Id
     @Column(name = "numero_conta")
     private Long numeroConta;
-
-    //private Person pessoa;
-
     private Double saldo;
-
     @OneToOne
     private Person person;
+
+    @Column(name = "type")
+    private AccountType accountType;
+
+    @Transient
+    private String error;
+
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public Person getPerson() {
         return person;
@@ -49,4 +70,6 @@ public class ContaCorrentePF{
         this.saldo = saldo;
     }
 
+    public void setAccountType(AccountType accountType) {
+    }
 }

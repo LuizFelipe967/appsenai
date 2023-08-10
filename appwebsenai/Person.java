@@ -1,45 +1,39 @@
-package com.example.appwebsenai.controller;
+package com.example.appwebsenai.model;
 
-import com.example.appwebsenai.model.Person;
-import org.springframework.stereotype.Service;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import java.util.ArrayList;
-import java.util.List;
+@Entity
+public class Person {
 
-@Service
-public class Controller {
+    @Id
+    private Integer id;
 
+    private String name;
 
-    private List<Person> persons = new ArrayList<>();
-    private int id = 0;
+    private String sexo;
 
-    public Person findPerson(String name){
-        for(Person p : persons){
-            if(p.getName().equals(name)){
-                return p;
-            }
-        }
-        return null;
+    public String getSexo() {
+        return sexo;
     }
 
-    public Person addPerson(String name, String sexo){
-        Person person = new Person();
-        person.setName(name);
-        person.setSexo(sexo);
-        id++;
-        person.setId(id);
-        persons.add(person);
-        return person;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
-    public void removePerson(String name){
-
-        //implementar método remover
+    public String getName() {
+        return name;
     }
 
-    public Person editPerson(String name, String sexo){
-        //implementar método editar
-        return null;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

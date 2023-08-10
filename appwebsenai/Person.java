@@ -1,34 +1,45 @@
-package com.example.appwebsenai;
+package com.example.appwebsenai.controller;
 
-public class Person {
+import com.example.appwebsenai.model.Person;
+import org.springframework.stereotype.Service;
 
-    private Integer id;
+import java.util.ArrayList;
+import java.util.List;
 
-    private String name;
+@Service
+public class Controller {
 
-    private String sexo;
 
-    public String getSexo() {
-        return sexo;
+    private List<Person> persons = new ArrayList<>();
+    private int id = 0;
+
+    public Person findPerson(String name){
+        for(Person p : persons){
+            if(p.getName().equals(name)){
+                return p;
+            }
+        }
+        return null;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public Person addPerson(String name, String sexo){
+        Person person = new Person();
+        person.setName(name);
+        person.setSexo(sexo);
+        id++;
+        person.setId(id);
+        persons.add(person);
+        return person;
     }
 
-    public String getName() {
-        return name;
+    public void removePerson(String name){
+
+        //implementar método remover
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Person editPerson(String name, String sexo){
+        //implementar método editar
+        return null;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

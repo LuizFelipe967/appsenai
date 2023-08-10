@@ -1,7 +1,6 @@
 package com.example.appwebsenai.controller;
 
 import com.example.appwebsenai.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,19 +9,16 @@ import java.util.List;
 @Service
 public class Controller {
 
-    @Autowired
-    private PersonRepository personRepository;
+
     private List<Person> persons = new ArrayList<>();
     private int id = 0;
 
     public Person findPerson(String name){
-        List<Person> persons = (List<Person>) personRepository.findAll();
-        for(Person person : persons){
-            if(person.getName().equals(name)){
-                return person;
+        for(Person p : persons){
+            if(p.getName().equals(name)){
+                return p;
             }
         }
-
         return null;
     }
 
@@ -32,24 +28,18 @@ public class Controller {
         person.setSexo(sexo);
         id++;
         person.setId(id);
-        personRepository.save(person);
+        persons.add(person);
         return person;
     }
 
     public void removePerson(String name){
-        Person person = findPerson(name);
-        personRepository.delete(person);
+
+        //implementar método remover
     }
 
     public Person editPerson(String name, String sexo){
-        Person person = findPerson(name);
-        person.setSexo(sexo);
-        personRepository.save(person);
-        return person;
-    }
-
-    public List<Person> listAll(){
-        return (List<Person>)personRepository.findAll();
+        //implementar método editar
+        return null;
     }
 
 }
